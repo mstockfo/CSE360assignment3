@@ -2,7 +2,7 @@
 package cse360assign3;
 
 /**
- * Class which STORES a list of integers in an array in ascending order.
+ * Class which can be used to perform arithmetic operations and maintains a running total.
  * 
  * @author Matthew Stockford PIN 819 for CSE360 Spring 2016
  * 
