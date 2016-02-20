@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+// tests the Calculator class
 public class CalculatorTest {
 
 	@Test
