@@ -35,6 +35,9 @@ public class CalculatorTest {
 		// test adding a negative number
 		testCalc.add(-20);
 		assertEquals(-5, testCalc.getTotal()); 
+		
+		// test that the prior actions were successfully recorded in the history
+		assertEquals("0 + 10 + 5 + -20", testCalc.getHistory());
 	}
 
 	@Test
@@ -52,6 +55,9 @@ public class CalculatorTest {
 		// test subtracting a negative number
 		testCalc.subtract(-15);
 		assertEquals(0, testCalc.getTotal()); 
+		
+		// test that the prior actions were successfully recorded in the history
+		assertEquals("0 - 10 - 5 - -15", testCalc.getHistory());
 	}
 
 	@Test
@@ -74,6 +80,9 @@ public class CalculatorTest {
 		// test multiply by zero
 		testCalc.multiply(0);
 		assertEquals(0, testCalc.getTotal()); 
+		
+		// test that the prior actions were successfully recorded in the history
+		assertEquals("0 * 10 + 5 * 10 * -1 * 0", testCalc.getHistory());
 	}
 
 	@Test
@@ -81,7 +90,7 @@ public class CalculatorTest {
 		Calculator testCalc = new Calculator();
 		
 		// test dividing the value of a newly constructed calculator by 10
-		testCalc.multiply(10);
+		testCalc.divide(10);
 		assertEquals(0, testCalc.getTotal()); 
 		
 		// test adding 5 to a calculator whose total is currently 0, then dividing the result by 5
@@ -97,11 +106,26 @@ public class CalculatorTest {
 		testCalc.add(5);
 		testCalc.divide(-1);
 		assertEquals(-5, testCalc.getTotal()); 
+		
+		// test that the prior actions were successfully recorded in the history
+		assertEquals("0 / 10 + 5 / 5 / 0 + 5 / -1", testCalc.getHistory());
 	}
 
 	@Test
 	public void testGetHistory() {
-		fail("Not yet implemented");
+		Calculator testCalc = new Calculator();
+		
+		// test getHistory with a newly constructed calculator with no actions
+		assertEquals("0", testCalc.getHistory());
+		
+		// test getHistory with multiple actions
+		testCalc.add (4);
+		testCalc.subtract (2);
+		testCalc.multiply (2);
+		testCalc.add(5);
+		
+		assertEquals("0 + 4 - 2 * 2 + 5", testCalc.getHistory());
+		
 	}
 
 }
